@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"es-in-action/common"
 	"github.com/olivere/elastic/v7"
 	"log"
@@ -32,8 +33,18 @@ func main() {
 	//}
 	//
 	//log.Printf("%+v\n", res)
-	client.Index().Index("cron").
+	item := common.JobRet{
+		HostId: "***REMOVED***",
+		CronId: "***REMOVED***",
+		Ctime:  "2022-07-07 22:33:33",
+	}
+	resp, err := client.Index().Index("cron").BodyJson(&item).Do(context.Background())
+	if err != nil {
+		log.Println("do err:", err)
+		return
+	}
 
+	log.Printf("resp is %+v\n", resp)
 
 	return
 }
