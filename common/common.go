@@ -1,6 +1,6 @@
 package common
 
-const Endpoint = "***REMOVED***"
+const Endpoint = "http://127.0.0.1:9200"
 const JobRetIndex = "job_ret"
 
 type JobRet struct {
