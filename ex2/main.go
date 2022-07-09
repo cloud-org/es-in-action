@@ -26,17 +26,10 @@ func main() {
 
 	log.Printf("version: %v\n", version)
 
-	//res, err := client.Get().Do(context.Background())
-	//if err != nil {
-	//	log.Println(err)
-	//	return
-	//}
-	//
-	//log.Printf("%+v\n", res)
 	item := common.JobRet{
-		HostId: "***REMOVED***",
-		CronId: "***REMOVED***",
-		Ctime:  "2022-07-07 22:33:33",
+		HostId: "host1",
+		CronId: "cron1",
+		Ctime:  100,
 	}
 	resp, err := client.Index().Index("cron").BodyJson(&item).Do(context.Background())
 	if err != nil {
